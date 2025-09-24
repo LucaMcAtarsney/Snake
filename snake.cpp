@@ -145,11 +145,11 @@ void Logic(){
 }
 
 void GameOver(){
-    clear(); // clear screen
+    clear();
     mvprintw(height/2, (width-9)/2, "GAME OVER"); // centered horizontally
     mvprintw(height/2 + 1, (width-18)/2, "Your score: %d\n", score);
-    refresh(); // show the message
-    napms(5000); // pause 2 seconds so player can see it
+    refresh();
+    napms(5000);
     endwin();
     clear();
 
@@ -158,17 +158,11 @@ int main() {
 
     srand(time(0)); // seeds randoms with current time
 
-    // SETUP
     Setup();
 
     while(!gameOver){
-        //DRAW
         Draw();
-
-        //INPUT
         Input();
-
-        //LOGIC
         Logic();
 
         napms(100); //sleep 100ms, handles game speed
